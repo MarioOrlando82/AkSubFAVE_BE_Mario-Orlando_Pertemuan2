@@ -90,7 +90,7 @@ class MenuController extends Controller
     public function setCookie(Request $request)
     {
         $user = Auth::user();
-        setcookie('nama', $user->name, 60);
+        Cookie::queue('nama', $user->name, 60);
         return redirect('/');
     }
 }

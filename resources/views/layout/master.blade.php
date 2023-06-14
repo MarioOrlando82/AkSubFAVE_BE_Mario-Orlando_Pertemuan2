@@ -26,9 +26,22 @@
             @can('isAdmin')
                 <a class="nav-item nav-link active" href="/create-menu">Add Menu <span class="sr-only"></span></a>
             @endcan
-            <a class="nav-item nav-link active" href="/login">Login <span class="sr-only"></span></a>
-            <a class="nav-item nav-link active" href="/register">Register <span class="sr-only"></span></a>
-            <a class="nav-item nav-link active" href="/dashboard">Dashboard <span class="sr-only"></span></a>
+
+            @guest
+                <a class="nav-item nav-link active" href="/login">Login <span class="sr-only"></span></a>
+                <a class="nav-item nav-link active" href="/register">Register <span class="sr-only"></span></a>
+            @endguest
+
+            <a class="nav-item nav-link active" href="/set-cookie">Set Cookie <span class="sr-only"></span></a>
+
+            <form method="POST" class="nav-item nav-link active" action="{{ route('logout') }}">
+                @csrf
+                <x-dropdown-link style="text-decoration: none; color:white; padding: 1rem; background-color: #dc3545; border-radius:15px" :href="route('logout')"
+                        onclick="event.preventDefault();
+                                    this.closest('form').submit();">
+                    {{ ('Log Out')}}
+                </x-dropdown-link>
+            </form>
         </div>
         </div>
     </nav>

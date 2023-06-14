@@ -25,7 +25,7 @@
             </div>
         </div>
     @empty
-        <h1>Empty</h1>
+        <h5 class="mx-4 mt-3">Empty</h5>
     @endforelse
 </div>
 
